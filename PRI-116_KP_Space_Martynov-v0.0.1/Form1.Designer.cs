@@ -42,12 +42,10 @@
             this.сатурнToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.уранToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.нептунToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выйтиИзКрупногоПланаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выбратьОбластьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.планетыЗемнойГруппыMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.планетыгигантыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.свойстваToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.отклВклОрбитыПланетMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.отклВклРеальныйРазмерПланетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.pauseMotion = new System.Windows.Forms.ToolStripButton();
             this.cometHalley = new System.Windows.Forms.ToolStripButton();
@@ -107,11 +105,10 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.справкаToolStripMenuItem,
             this.выбратьПанетуToolStripMenuItem,
-            this.выбратьОбластьToolStripMenuItem,
-            this.свойстваToolStripMenuItem});
+            this.выбратьОбластьToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1665, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1665, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -121,7 +118,7 @@
             this.инструкцияToolStripMenuItem,
             this.оПрограммеToolStripMenuItem});
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
-            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(81, 26);
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(81, 24);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
             // инструкцияToolStripMenuItem
@@ -148,58 +145,74 @@
             this.юпитерToolStripMenuItem,
             this.сатурнToolStripMenuItem,
             this.уранToolStripMenuItem,
-            this.нептунToolStripMenuItem});
+            this.нептунToolStripMenuItem,
+            this.выйтиИзКрупногоПланаToolStripMenuItem});
             this.выбратьПанетуToolStripMenuItem.Name = "выбратьПанетуToolStripMenuItem";
-            this.выбратьПанетуToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.выбратьПанетуToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.выбратьПанетуToolStripMenuItem.Text = "Выбрать планету";
             // 
             // меркуриийToolStripMenuItem
             // 
             this.меркуриийToolStripMenuItem.Name = "меркуриийToolStripMenuItem";
-            this.меркуриийToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.меркуриийToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.меркуриийToolStripMenuItem.Text = "Меркурий";
+            this.меркуриийToolStripMenuItem.Click += new System.EventHandler(this.меркуриийToolStripMenuItem_Click);
             // 
             // венераToolStripMenuItem
             // 
             this.венераToolStripMenuItem.Name = "венераToolStripMenuItem";
-            this.венераToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.венераToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.венераToolStripMenuItem.Text = "Венера";
+            this.венераToolStripMenuItem.Click += new System.EventHandler(this.венераToolStripMenuItem_Click);
             // 
             // земляToolStripMenuItem
             // 
             this.земляToolStripMenuItem.Name = "земляToolStripMenuItem";
-            this.земляToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.земляToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.земляToolStripMenuItem.Text = "Земля";
+            this.земляToolStripMenuItem.Click += new System.EventHandler(this.земляToolStripMenuItem_Click);
             // 
             // марсToolStripMenuItem
             // 
             this.марсToolStripMenuItem.Name = "марсToolStripMenuItem";
-            this.марсToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.марсToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.марсToolStripMenuItem.Text = "Марс";
+            this.марсToolStripMenuItem.Click += new System.EventHandler(this.марсToolStripMenuItem_Click);
             // 
             // юпитерToolStripMenuItem
             // 
             this.юпитерToolStripMenuItem.Name = "юпитерToolStripMenuItem";
-            this.юпитерToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.юпитерToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.юпитерToolStripMenuItem.Text = "Юпитер";
+            this.юпитерToolStripMenuItem.Click += new System.EventHandler(this.юпитерToolStripMenuItem_Click);
             // 
             // сатурнToolStripMenuItem
             // 
             this.сатурнToolStripMenuItem.Name = "сатурнToolStripMenuItem";
-            this.сатурнToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.сатурнToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.сатурнToolStripMenuItem.Text = "Сатурн";
+            this.сатурнToolStripMenuItem.Click += new System.EventHandler(this.сатурнToolStripMenuItem_Click);
             // 
             // уранToolStripMenuItem
             // 
             this.уранToolStripMenuItem.Name = "уранToolStripMenuItem";
-            this.уранToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.уранToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.уранToolStripMenuItem.Text = "Уран";
+            this.уранToolStripMenuItem.Click += new System.EventHandler(this.уранToolStripMenuItem_Click);
             // 
             // нептунToolStripMenuItem
             // 
             this.нептунToolStripMenuItem.Name = "нептунToolStripMenuItem";
-            this.нептунToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.нептунToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
             this.нептунToolStripMenuItem.Text = "Нептун";
+            this.нептунToolStripMenuItem.Click += new System.EventHandler(this.нептунToolStripMenuItem_Click);
+            // 
+            // выйтиИзКрупногоПланаToolStripMenuItem
+            // 
+            this.выйтиИзКрупногоПланаToolStripMenuItem.Name = "выйтиИзКрупногоПланаToolStripMenuItem";
+            this.выйтиИзКрупногоПланаToolStripMenuItem.Size = new System.Drawing.Size(271, 26);
+            this.выйтиИзКрупногоПланаToolStripMenuItem.Text = "Выйти из крупного плана";
+            this.выйтиИзКрупногоПланаToolStripMenuItem.Click += new System.EventHandler(this.выйтиИзКрупногоПланаToolStripMenuItem_Click);
             // 
             // выбратьОбластьToolStripMenuItem
             // 
@@ -207,7 +220,7 @@
             this.планетыЗемнойГруппыMenuItem,
             this.планетыгигантыToolStripMenuItem});
             this.выбратьОбластьToolStripMenuItem.Name = "выбратьОбластьToolStripMenuItem";
-            this.выбратьОбластьToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
+            this.выбратьОбластьToolStripMenuItem.Size = new System.Drawing.Size(142, 24);
             this.выбратьОбластьToolStripMenuItem.Text = "Выбрать область";
             // 
             // планетыЗемнойГруппыMenuItem
@@ -224,29 +237,6 @@
             this.планетыгигантыToolStripMenuItem.Text = "Планеты-гиганты";
             this.планетыгигантыToolStripMenuItem.Click += new System.EventHandler(this.планетыгигантыToolStripMenuItem_Click);
             // 
-            // свойстваToolStripMenuItem
-            // 
-            this.свойстваToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.отклВклОрбитыПланетMenuItem,
-            this.отклВклРеальныйРазмерПланетToolStripMenuItem});
-            this.свойстваToolStripMenuItem.Name = "свойстваToolStripMenuItem";
-            this.свойстваToolStripMenuItem.Size = new System.Drawing.Size(87, 26);
-            this.свойстваToolStripMenuItem.Text = "Свойства";
-            // 
-            // отклВклОрбитыПланетMenuItem
-            // 
-            this.отклВклОрбитыПланетMenuItem.Name = "отклВклОрбитыПланетMenuItem";
-            this.отклВклОрбитыПланетMenuItem.Size = new System.Drawing.Size(335, 26);
-            this.отклВклОрбитыПланетMenuItem.Text = "Откл/Вкл орбиты планет";
-            this.отклВклОрбитыПланетMenuItem.Click += new System.EventHandler(this.отклВклОрбитыПланетMenuItem_Click);
-            // 
-            // отклВклРеальныйРазмерПланетToolStripMenuItem
-            // 
-            this.отклВклРеальныйРазмерПланетToolStripMenuItem.Name = "отклВклРеальныйРазмерПланетToolStripMenuItem";
-            this.отклВклРеальныйРазмерПланетToolStripMenuItem.Size = new System.Drawing.Size(335, 26);
-            this.отклВклРеальныйРазмерПланетToolStripMenuItem.Text = "Откл/Вкл Реальный размер планет";
-            this.отклВклРеальныйРазмерПланетToolStripMenuItem.Click += new System.EventHandler(this.отклВклРеальныйРазмерПланетToolStripMenuItem_Click);
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -255,9 +245,9 @@
             this.pauseMotion,
             this.cometHalley});
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
-            this.toolStrip1.Location = new System.Drawing.Point(0, 30);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 28);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(69, 916);
+            this.toolStrip1.Size = new System.Drawing.Size(69, 918);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -452,7 +442,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1513, 908);
+            this.label7.Location = new System.Drawing.Point(1416, 915);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 17);
             this.label7.TabIndex = 8;
@@ -461,7 +451,7 @@
             // lblAnglZ
             // 
             this.lblAnglZ.AutoSize = true;
-            this.lblAnglZ.Location = new System.Drawing.Point(1572, 908);
+            this.lblAnglZ.Location = new System.Drawing.Point(1475, 915);
             this.lblAnglZ.Name = "lblAnglZ";
             this.lblAnglZ.Size = new System.Drawing.Size(16, 17);
             this.lblAnglZ.TabIndex = 9;
@@ -470,7 +460,7 @@
             // lblX
             // 
             this.lblX.AutoSize = true;
-            this.lblX.Location = new System.Drawing.Point(1465, 856);
+            this.lblX.Location = new System.Drawing.Point(1466, 837);
             this.lblX.Name = "lblX";
             this.lblX.Size = new System.Drawing.Size(16, 17);
             this.lblX.TabIndex = 11;
@@ -479,7 +469,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1414, 856);
+            this.label9.Location = new System.Drawing.Point(1415, 837);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(45, 17);
             this.label9.TabIndex = 10;
@@ -488,7 +478,7 @@
             // lblY
             // 
             this.lblY.AutoSize = true;
-            this.lblY.Location = new System.Drawing.Point(1465, 883);
+            this.lblY.Location = new System.Drawing.Point(1466, 863);
             this.lblY.Name = "lblY";
             this.lblY.Size = new System.Drawing.Size(16, 17);
             this.lblY.TabIndex = 13;
@@ -497,7 +487,7 @@
             // lael
             // 
             this.lael.AutoSize = true;
-            this.lael.Location = new System.Drawing.Point(1414, 883);
+            this.lael.Location = new System.Drawing.Point(1415, 863);
             this.lael.Name = "lael";
             this.lael.Size = new System.Drawing.Size(45, 17);
             this.lael.TabIndex = 12;
@@ -506,7 +496,7 @@
             // lblZ
             // 
             this.lblZ.AutoSize = true;
-            this.lblZ.Location = new System.Drawing.Point(1466, 909);
+            this.lblZ.Location = new System.Drawing.Point(1467, 889);
             this.lblZ.Name = "lblZ";
             this.lblZ.Size = new System.Drawing.Size(16, 17);
             this.lblZ.TabIndex = 15;
@@ -515,7 +505,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1415, 909);
+            this.label11.Location = new System.Drawing.Point(1416, 889);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(45, 17);
             this.label11.TabIndex = 14;
@@ -722,7 +712,7 @@
             this.cmbRule.Items.AddRange(new object[] {
             "Камера",
             "Солнце",
-            "Планеты",
+            "Орбиты планет",
             "Фрактал"});
             this.cmbRule.Location = new System.Drawing.Point(1413, 527);
             this.cmbRule.Name = "cmbRule";
@@ -745,7 +735,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label14.Location = new System.Drawing.Point(1415, 827);
+            this.label14.Location = new System.Drawing.Point(1416, 808);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(170, 18);
             this.label14.TabIndex = 37;
@@ -829,6 +819,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Трехмерная модель графической сцены \"Космос\"";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -884,9 +875,6 @@
         private System.Windows.Forms.ToolStripMenuItem выбратьОбластьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem планетыЗемнойГруппыMenuItem;
         private System.Windows.Forms.ToolStripMenuItem планетыгигантыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem свойстваToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem отклВклОрбитыПланетMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem отклВклРеальныйРазмерПланетToolStripMenuItem;
         private System.Windows.Forms.CheckBox orbitsCheck;
         private System.Windows.Forms.CheckBox realSizeCheck;
         private System.Windows.Forms.Button btnForward;
@@ -910,6 +898,7 @@
         private System.Windows.Forms.CheckBox chPlayColors;
         private System.Windows.Forms.CheckBox chColorsGlob;
         private System.Windows.Forms.CheckBox chExplosion;
+        private System.Windows.Forms.ToolStripMenuItem выйтиИзКрупногоПланаToolStripMenuItem;
     }
 }
 

@@ -160,7 +160,7 @@
   <data name="cometHalley.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAdfSURBVHhe7ZoLbBRFGMepr/g2RmOMiYkxMSYYjYoxGhNP
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAdfSURBVHhe7ZoLbBRFGMepr/g2RmOMiYkxMSaoiYoxGhNP
         uUd7u9fS3s5RCsVSKU8FtGjVFCEVKI9CLVJqKIYCImDLq2BDVBBDeCoQEUofUFr6otAWkCLYlnb8vuXb
         u7netder5G5b75d86d3M7H7z/3Z25pu5DgoRIkSIECH0RVRU1AP08f/Fa4zdY5ZYkVlm3CSzJVT8/4DE
         70TxaENlVk9VA5+u4mkEfEDVXnE4HLfTx/6NKt7KfnYTL7FUqvYA2xtldtAsD7tusbFYKu6f+CsesciO
@@ -190,9 +190,9 @@
         hmWq1km0uVm5HgFAO3q6njfCEqkFAk9zW6638prGy/zPyga3tkV7j/LM3LU8boxwUAJ+yKXuCINkpUAM
         wscz56u7Q1GUaL+X18LE6MoT9hVX8nU//MLTMpbxuMTJLtGi6flHDIMh4W6TzLaLHU56P4XvPFziJly0
         XUdK+PLvtvDk1Lk8ko12F+tuneqPqf6fEAUW9Z8UJZYrdt4RP46vLChSJ8f9J8/ywt2H+MKcVWpwLJHD
-        RZFu9roccxX+bsWJrzc/duoKzOEHD37hhigID0ys0SPcRHqxKtgGLzNKLAJHFN2ufwIiZDzU8CLSaRgk
-        eG32wefPIMl5ni4dOBijox/BPftQKysRRkQV2PcmiY3W/Tt9q8F/jKKPIUKECBEihO4ZNOhfV2CJkbQl
-        vH0AAAAASUVORK5CYII=
+        RZFu9roccxX+bsWJrzc/duoKzOEHD37+higID0ys0SPcRHqxKtgGLzNKLAJHFN2ufwIiZDzU8CLSaRgk
+        eG32wefPIMl5gS4dOBijox/BPftQKysRRkQV2PcmiY3W/Tt9q8F/jKKPIUKECBEihO4ZNOhfIvSJi99+
+        WvkAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="closeBtn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -249,6 +249,6 @@
 - Космическое пространство – фото с растровым фильтром «Тиснение»</value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>29</value>
+    <value>39</value>
   </metadata>
 </root>
