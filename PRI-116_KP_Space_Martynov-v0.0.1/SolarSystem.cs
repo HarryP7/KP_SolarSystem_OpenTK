@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Drawing;
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
@@ -42,8 +41,8 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
         //Позиции просмотра системы
         // x - в минус вправо, y - в минус вверх, z - в минус назад
         public CoordsPositions[] position = new[]{
-            new CoordsPositions{X = -1.4, Y = -2.2, Z = -15}, //пленеты земной группы
-            new CoordsPositions{X = -2.73, Y = -6.5, Z = -26.91}, //пленеты гиганты
+            new CoordsPositions{X = -1.4, Y = -2.2, Z = -13}, //пленеты земной группы
+            new CoordsPositions{X = -2.73, Y = -6.1, Z = -26.91}, //пленеты гиганты
             new CoordsPositions{X = -3.08, Y = -6.1, Z = -29.98}, //камета Галлея
 
             new CoordsPositions{X = -6.62, Y = 0.1, Z = -1.18},  //Меркурий
@@ -55,7 +54,7 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
             new CoordsPositions{X = -17.12, Y = 0.1, Z = -2.58}, //Уран
             new CoordsPositions{X = -19.20, Y = 0.3, Z = -1.58}, //Нептун                    
             new CoordsPositions{X = 0, Y = 0, Z = 0}, //Центр
-            new CoordsPositions{X = 0.65, Y = 0.359, Z = 6.67}, //Фрактал 
+            new CoordsPositions{X = 0.9, Y = 0.4, Z = 6.67}, //Фрактал 
         };
         /// <summary>
         /// Переменная для задания текстур
@@ -85,7 +84,14 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
             Sphere(32, 10, 10, 0, 0, 0, speed_os, true); //z меньше вперед
             GL.Disable(EnableCap.Texture2D);
         }
-
+        /// <summary>
+        /// моделируем солнце
+        /// </summary>
+        /// <param name="pic">текстура</param>
+        /// <param name="Xs">положение по X</param>
+        /// <param name="Ys"> положение по Y</param>
+        /// <param name="Zs">положение по Z</param>
+        /// <param name="speed_os">скорость вращения вокруг своей оси</param>
         public void DrawSun(Bitmap pic, double Xs, double Ys, double Zs, double speed_os)
         {
             GLTexture.LoadTexture(pic);
@@ -99,13 +105,12 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
             GL.Disable(EnableCap.Texture2D);
         }
         /// <summary>
-        /// моделируем планеты
+        /// моделируем планету
         /// </summary>
         /// <param name="pic">текстура</param>
         /// <param name="speed">скорость</param>
         /// <param name="remoteness">удаленность</param>
         /// <param name="radius">радиус</param>
-        /// <param name="orbits"></param>
         /// <param name="position">горизонально ровная позиция орбит планет</param>
         /// <param name="nx"></param>
         /// <param name="ny"></param>
@@ -121,7 +126,7 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
 
             GL.Begin(PrimitiveType.LineLoop);
             //GL.Vertex2(0.0f, 0.0f); //начальная позиция
-            //Рисуем орбиты планет вокруг солнца
+            //Рисуем орбиту планеты вокруг солнца
             if (orbits)
             {
                 float a = 0f;
@@ -194,7 +199,6 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
         /// <param name="speed">скорость</param>
         /// <param name="remoteness">удаленность</param>
         /// <param name="radius">радиус</param>
-        /// <param name="orbits"></param>
         /// <param name="position">горизонально ровная позиция орбит планет</param>
         /// <param name="nx"></param>
         /// <param name="ny"></param>
@@ -355,7 +359,7 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
         private VertexC4ubV3f[] VBO = new VertexC4ubV3f[MaxParticleCount];
         // Структура свойств частиц (Direction и Age)
         ParticleAttribut[] ParticleAttributes = new ParticleAttribut[MaxParticleCount];
-        private int SpeedParticles = 15;
+        private int SpeedParticles = 35;
 
         // Структура, употребляемая при выводе вершин
         struct VertexC4ubV3f
@@ -407,7 +411,7 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
                 ParticleAttributes[i].Age = 0; // Начальный возраст частицы
             }
             // Число родившихся частиц
-            VisibleParticleCount = 0;
+            VisibleParticleCount = 450;
         }
         public void RenderExplosion()
         {
@@ -433,7 +437,7 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
             Vector3 temp;
             for (int i = MaxParticleCount - VisibleParticleCount; i < MaxParticleCount; i++)
             {
-                if (ParticleAttributes[i].Age >= MaxParticleCount-300)
+                if (ParticleAttributes[i].Age >= MaxParticleCount-400)
                 {
                     // Приводим непоявившиеся частицы в начальное состояние
                     ParticleAttributes[i].Age = 40;
