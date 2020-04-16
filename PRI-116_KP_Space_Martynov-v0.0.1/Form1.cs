@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using OpenTK;
@@ -15,16 +14,18 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
         private static bool cometHalleyRun = false, realSize = false, planetView = false;
         private static bool orbits = true, viewFromAbove = false, ruleSun = false, rulePlanets = false;
         private static bool rulePythagorasTree = false, ViewPythagorasTree = false;
+        private static bool viewMercury = true, viewVenus = true, viewEarth = true, viewMars = true;
+        private static bool viewJupiter = true, viewSaturn = true, viewUran = true, viewNeptun = true;
         private static double sizeSun = 3.5;
-        private double AngleY = 0, AngleZ = -5.6; //в минус влево
+        private double AngleZ = -5.6; //в минус влево
         /// <summary>
         ////Иницилизация объекта солнечной системы
         /// </summary>
         SolarSystem solS = new SolarSystem(orbits, viewFromAbove, sizeSun);
 
-        Timer timer = new Timer(), 
-            tmComet = new Timer(), 
-            tmEplos = new Timer();
+        Timer timer = new Timer(), tmComet = new Timer(), tmEplos = new Timer(),
+            tmMercury = new Timer(),  tmVenus = new Timer(), tmEarth = new Timer(), tmMars = new Timer(),
+            tmJupiter = new Timer(), tmSaturn = new Timer(), tmUran = new Timer(), tmNeptun = new Timer();
         /// <summary>
         /// Скорости космоса и планет
         /// </summary>
@@ -59,17 +60,17 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
         public Form1()
         {
             InitializeComponent();
-            solS.Pictures[0] = new Bitmap("images/space_2700x4320.jpg");
-            solS.Pictures[1] = new Bitmap("images/8k_sun.jpg");
-            solS.Pictures[2] = new Bitmap("images/planet/2k_mercury.jpg");
-            solS.Pictures[3] = new Bitmap("images/planet/2k_venus.jpg");
-            solS.Pictures[4] = new Bitmap("images/planet/2k_earth.png");
-            solS.Pictures[5] = new Bitmap("images/planet/2k_mars.jpg");
-            solS.Pictures[6] = new Bitmap("images/planet/2k_jupiter.jpg");
-            solS.Pictures[7] = new Bitmap("images/planet/2k_saturn.jpg");
-            solS.Pictures[8] = new Bitmap("images/planet/2k_uran.png");
-            solS.Pictures[9] = new Bitmap("images/planet/2k_neptune.jpg");
-            solS.Pictures[10] = new Bitmap("images/planet/2k_mercury.jpg");
+            solS.Pictures[0] = new Bitmap("images/textures/space_2700x4320.jpg");
+            solS.Pictures[1] = new Bitmap("images/textures/8k_sun.jpg");
+            solS.Pictures[2] = new Bitmap("images/textures/2k_mercury.jpg");
+            solS.Pictures[3] = new Bitmap("images/textures/2k_venus.jpg");
+            solS.Pictures[4] = new Bitmap("images/textures/2k_earth.png");
+            solS.Pictures[5] = new Bitmap("images/textures/2k_mars.jpg");
+            solS.Pictures[6] = new Bitmap("images/textures/2k_jupiter.jpg");
+            solS.Pictures[7] = new Bitmap("images/textures/2k_saturn.jpg");
+            solS.Pictures[8] = new Bitmap("images/textures/2k_uran.png");
+            solS.Pictures[9] = new Bitmap("images/textures/2k_neptune.jpg");
+            solS.Pictures[10] = new Bitmap("images/textures/2k_mercury.jpg");
         }
         
         private void AnT_Paint(object sender, PaintEventArgs e)
@@ -85,17 +86,25 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
             if (chExplosion.Checked) 
                 solS.RenderExplosion();
             solS.DrawSun(solS.Pictures[1], PosSun.X, PosSun.Y, PosSun.Z, speedSpace);
-            //рисуем планеты                        текстура,     скорость,         скоростьВращения    удаленность,       радиус
-            solS.position[3] = solS.DrawPlanet(solS.Pictures[2], totalSpeed / 2,    rotateSpeed / 2,    5 + PosPln.X,  realSize ? 0.0114 : 0.114);
-            solS.position[4] = solS.DrawPlanet(solS.Pictures[3], totalSpeed / 3.5,  rotateSpeed / 3.5,  6.5 + PosPln.X,    realSize ? 0.0295 : 0.295);
-            solS.position[5] = solS.DrawPlanet(solS.Pictures[4], totalSpeed / 5,    rotateSpeed / 5,    8 + PosPln.X,  realSize ? 0.03 : 0.3);
-            solS.position[6] = solS.DrawPlanet(solS.Pictures[5], totalSpeed / 6.5,  rotateSpeed / 6.5,  9.1 + PosPln.X, realSize ? 0.0174 : 0.174);
-            solS.position[7] = solS.DrawPlanet(solS.Pictures[6], totalSpeed / 9,    rotateSpeed / 9,    12.1 + PosPln.X, realSize ? 0.1 : 1);
-            solS.position[8] = solS.DrawPlanet(solS.Pictures[7], totalSpeed / 12,   rotateSpeed / 12,   14.5 + PosPln.X, realSize ? 0.08 : 0.8);
-            solS.position[9] = solS.DrawPlanet(solS.Pictures[8], totalSpeed / 15.5, rotateSpeed / 15.5, 16.9 + PosPln.X, realSize ? 0.07 : 0.7);
-            solS.position[10] = solS.DrawPlanet(solS.Pictures[9], totalSpeed / 19,  rotateSpeed / 19,   19 + PosPln.X, realSize ? 0.05 : 0.5);
-            if (cometHalleyRun) 
-                solS.DrawComet(solS.Pictures[10], totalSpeed * 2, 21, 0.094);
+            //рисуем планеты
+            if(viewMercury)//                        текстура,     скорость,         скоростьВращения    удаленность,       радиус
+                solS.position[3] = solS.DrawPlanet(solS.Pictures[2], totalSpeed / 2,    rotateSpeed / 2,    5 + PosPln.X,  realSize ? 0.0114 : 0.114);
+            if(viewVenus)
+                solS.position[4] = solS.DrawPlanet(solS.Pictures[3], totalSpeed / 3.5,  rotateSpeed / 3.5,  6.5 + PosPln.X,    realSize ? 0.0295 : 0.295);
+            if(viewEarth)
+                solS.position[5] = solS.DrawPlanet(solS.Pictures[4], totalSpeed / 5,    rotateSpeed / 5,    8 + PosPln.X,  realSize ? 0.03 : 0.3);
+            if(viewMars)
+                solS.position[6] = solS.DrawPlanet(solS.Pictures[5], totalSpeed / 6.5,  rotateSpeed / 6.5,  9.1 + PosPln.X, realSize ? 0.0174 : 0.174);
+            if(viewJupiter)
+               solS.position[7] = solS.DrawPlanet(solS.Pictures[6], totalSpeed / 9,    rotateSpeed / 9,    12.1 + PosPln.X, realSize ? 0.1 : 1);
+            if(viewSaturn)
+               solS.position[8] = solS.DrawPlanet(solS.Pictures[7], totalSpeed / 12,   rotateSpeed / 12,   14.5 + PosPln.X, realSize ? 0.08 : 0.8);
+            if(viewUran)
+               solS.position[9] = solS.DrawPlanet(solS.Pictures[8], totalSpeed / 15.5, rotateSpeed / 15.5, 16.9 + PosPln.X, realSize ? 0.07 : 0.7);
+            if(viewNeptun)
+               solS.position[10] = solS.DrawPlanet(solS.Pictures[9], totalSpeed / 19,  rotateSpeed / 19,   19 + PosPln.X, realSize ? 0.05 : 0.5);
+            if(cometHalleyRun) 
+               solS.DrawComet(solS.Pictures[10], totalSpeed * 2, 21, 0.094);
 
             if (ViewPythagorasTree)
                 solS.DrawPythagorasTree(PosFract.X, PosFract.Y, PosFract.Z);
@@ -108,7 +117,7 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
                 GL.Rotate(0, 1.0, 1.0, 1.0); // поворот изображения
                 switch (cmbBoxPlanet.SelectedIndex)
                 {
-                    case 1: { PosCam = solS.position[3]; PosCam.Z = -0.7; ;  break; }
+                    case 1: { PosCam = solS.position[3]; PosCam.Z = -0.7; break; }
                     case 2: { PosCam = solS.position[4]; PosCam.Z = -1; break; }
                     case 3: { PosCam = solS.position[5]; PosCam.Z = -1; break; }
                     case 4: { PosCam = solS.position[6]; PosCam.Z = -0.8; break; }
@@ -145,7 +154,7 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
             PosFract = solS.position[12]; //Фрактал
             cmbBoxArea.SelectedIndex = 1; //позиция планеты-гиганты
             cmbBoxPlanet.SelectedIndex = 0; //планеты - невыбрано
-            cmbRule.SelectedIndex = 0; //управление объектом
+            cmbRule.SelectedIndex = 0; //управление объектом - камера
             timer.Interval = 20;
             timer.Tick += movementObjects;
             timer.Enabled = true;
@@ -182,7 +191,7 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
                 switch (e.KeyCode)
                 {
                     case Keys.Q: AngleZ -= AngleDl; break;
-                    case Keys.E: AngleZ = AngleDl; break;
+                    case Keys.E: AngleZ += AngleDl; break;
                     case Keys.W:
                         PosCam.X -= Step * Math.Sin(AngleZ * Math.PI / 180);
                         PosCam.Z += Step * Math.Cos(AngleZ * Math.PI / 180);
@@ -245,16 +254,20 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
                     case Keys.D: PosFract.X += Step * Math.Cos(AngleZ * Math.PI / 180); break;
                 }
             }
-            //if (AngleY >= 360)
-            //    AngleY -= 360;
 
             AnT.Invalidate(); //перерисовываем сцену
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            AnT_KeyDown(sender, e);
         }
         private void AnT_MouseMove(object sender, MouseEventArgs e)
         {
             if (pressed)
             {
-                PosCam.Z = Step * (lastAngleZ + (e.Y - lastMouseX) / 5);
+                cmbBoxArea.SelectedIndex = 1;
+                PosCam.Z = 0.5 * (lastAngleZ + (e.Y - lastMouseX) / 5);
                 PosCam.X = Step * (lastPosX - (e.Y - lastMouseY) / 50 * Math.Sin(AngleZ * Math.PI / 180));
                 PosCam.X = 0.7 * (lastPosY + (e.X - lastMouseY) / 50 * Math.Cos(AngleZ * Math.PI / 180));
                 AnT.Invalidate();
@@ -266,9 +279,9 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
             pressed = true;
             lastMouseX = e.X;
             lastMouseY = e.Y;
-            lastAngleZ = AngleZ;
             lastPosX = PosCam.X;
             lastPosY = PosCam.Y;
+            lastAngleZ = PosCam.Z;
         }
 
         private void AnT_MouseUp(object sender, MouseEventArgs e)
@@ -280,6 +293,10 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
         {
             AngleZ = -5.6;
             PosCam = cmbBoxArea.SelectedIndex == 0 ? solS.position[0] : solS.position[1];
+            if(cmbBoxArea.SelectedIndex == 0) 
+                viewJupiter = viewSaturn = viewUran = false;
+            else
+                viewJupiter = viewSaturn = viewUran = true;
         }
 
         private void chFractal_CheckedChanged(object sender, EventArgs e)
@@ -288,6 +305,7 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
             chViewAbove.Checked = ViewPythagorasTree;
             PosCam = ViewPythagorasTree ? solS.position[0] : solS.position[1];
             cmbBoxArea.SelectedIndex = ViewPythagorasTree ? 0 : 1;
+            PosCam.Z = ViewPythagorasTree ? -12 : solS.position[1].Z;
         }
 
         private void chPlayColors_CheckedChanged(object sender, EventArgs e)
@@ -333,31 +351,9 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
             solS.orbits = orbitsCheck.Checked;
         }
 
-        private void chExplosion_CheckedChanged(object sender, EventArgs e)
-        {
-            solS.SmollSizeSun();
-            solS.OnLoadExplosion();            
-            tmEplos.Interval = 30000; //Запуск таймера на 30 секунд
-            tmEplos.Tick += hideExplosion;
-            tmEplos.Enabled = true;
-        }
-        private void hideExplosion(object sender, EventArgs e)
-        {
-            chExplosion.Checked = false;
-            tmEplos.Enabled = false;
-            tmEplos = new Timer();
-            solS.BigSizeSun();
-        }
-
-        private void realSizeCheck_CheckedChanged(object sender, EventArgs e)
-        {
-            realSize = !realSize;
-            orbitsCheck.Checked = realSize ? false : true;
-        }
-
         private void cometHalley_Click(object sender, EventArgs e)
         {
-            tmComet.Interval = 15000; //Запуск таймера на 10 секунд
+            tmComet.Interval = 20000; //Запуск таймера на 20 секунд
             tmComet.Tick += hideCometHalley;
             tmComet.Enabled = true;
 
@@ -379,10 +375,89 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
             tmComet = new Timer();
         }
 
-        private void отклВклОрбитыПланетMenuItem_Click(object sender, EventArgs e)
+        private void chExplosion_CheckedChanged(object sender, EventArgs e)
         {
-            solS.orbits = !solS.orbits;
-            orbitsCheck.Checked = solS.orbits;
+            if (chExplosion.Checked) {
+                solS.SmollSizeSun();
+                solS.OnLoadExplosion();
+                tmEplos.Interval = 20000; //Запуск таймера на 20 секунд
+                tmEplos.Tick += hideExplosion;
+                tmEplos.Enabled = true;
+                tmMercury.Interval = 1500; //Запуск таймера на 1.5 секунду
+                tmMercury.Tick += hideMercury;
+                tmMercury.Enabled = true;
+                tmVenus.Interval = 2500; //Запуск таймера на 2.5 секунды
+                tmVenus.Tick += hideVenus;
+                tmVenus.Enabled = true;
+                tmEarth.Interval = 3500; //Запуск таймера на 3.5 секунды
+                tmEarth.Tick += hideEarth;
+                tmEarth.Enabled = true;
+                tmMars.Interval = 3800; //Запуск таймера на 3.8 секунды
+                tmMars.Tick += hideMars;
+                tmMars.Enabled = true;
+                tmJupiter.Interval = 4500; //Запуск таймера на 4.5 секунды
+                tmJupiter.Tick += hideJupiter;
+                tmJupiter.Enabled = true;
+                tmSaturn.Interval = 5200; //Запуск таймера на 5.2 секунды
+                tmSaturn.Tick += hideSaturn;
+                tmSaturn.Enabled = true;
+                tmUran.Interval = 5500; //Запуск таймера на 5.5 секунды
+                tmUran.Tick += hideUran;
+                tmUran.Enabled = true;
+                tmNeptun.Interval = 6000; //Запуск таймера на 6 секунды
+                tmNeptun.Tick += hideNeptun;
+                tmNeptun.Enabled = true;
+            }
+            else hideExplosion(sender, e);
+        }
+
+        private void hideMercury(object sender, EventArgs e) {
+            viewMercury = tmMercury.Enabled = false;
+            tmMercury = new Timer();
+        }
+        private void hideVenus(object sender, EventArgs e){
+            viewVenus = tmVenus.Enabled = false;
+            tmVenus = new Timer();
+        }
+        private void hideEarth(object sender, EventArgs e) {
+            viewEarth = tmEarth.Enabled = false;
+            tmEarth = new Timer();
+        }
+        private void hideMars(object sender, EventArgs e){
+            viewMars = tmMars.Enabled = false;
+            tmMars = new Timer();
+        }
+        private void hideJupiter(object sender, EventArgs e){
+            viewJupiter = tmJupiter.Enabled = false;
+            tmJupiter = new Timer();
+        }
+        private void hideSaturn(object sender, EventArgs e){
+            viewSaturn = tmSaturn.Enabled = false;
+            tmSaturn = new Timer();
+        }
+        private void hideUran(object sender, EventArgs e){
+            viewUran = tmUran.Enabled = false;
+            tmUran = new Timer();
+        }
+        private void hideNeptun(object sender, EventArgs e){
+            viewNeptun = tmNeptun.Enabled = false;
+            tmNeptun = new Timer();
+        }
+
+        private void hideExplosion(object sender, EventArgs e)
+        {
+            chExplosion.Checked = false;
+            tmEplos.Enabled = false;
+            tmEplos = new Timer();
+            solS.BigSizeSun();
+            viewMercury = viewVenus = viewEarth = viewMars = 
+            viewJupiter = viewSaturn = viewUran = viewNeptun = true;
+        }
+
+        private void realSizeCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            realSize = !realSize;
+            orbitsCheck.Checked = realSize ? false : true;
         }
 
         private void pauseMotion_Click(object sender, EventArgs e)
@@ -427,11 +502,49 @@ namespace PRI_116_KP_Space_Martynov_v0._0._1
             PosCam = solS.position[1]; AngleZ = -5.6;
         }
 
-        private void отклВклРеальныйРазмерПланетToolStripMenuItem_Click(object sender, EventArgs e)
+        private void меркуриийToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            realSize = !realSize;
-            orbitsCheck.Checked = realSize ? false : true;
+            cmbBoxPlanet.SelectedIndex = 1;
         }
 
+        private void венераToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cmbBoxPlanet.SelectedIndex = 2;
+        }
+
+        private void земляToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cmbBoxPlanet.SelectedIndex = 3;
+        }
+
+        private void марсToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cmbBoxPlanet.SelectedIndex = 4;
+        }
+
+        private void юпитерToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cmbBoxPlanet.SelectedIndex = 5;
+        }
+
+        private void сатурнToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cmbBoxPlanet.SelectedIndex = 6;
+        }
+
+        private void уранToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cmbBoxPlanet.SelectedIndex = 7;
+        }
+
+        private void нептунToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cmbBoxPlanet.SelectedIndex = 8;
+        }
+
+        private void выйтиИзКрупногоПланаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cmbBoxPlanet.SelectedIndex = 0;
+        }
     }
 }
