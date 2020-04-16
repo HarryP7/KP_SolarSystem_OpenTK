@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PRI_116_KP_Space_Martynov_v0._0._1.GLTexture">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GLTexture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PRI_116_KP_Space_Martynov_v0._0._1.SolarSystem">
+    <Position X="2.25" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="PRI_116_KP_Space_Martynov_v0._0._1.SolarSystem.CoordsPositions">
+        <TypeIdentifier>
+          <NewMemberFileName>SolarSystem.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="PRI_116_KP_Space_Martynov_v0._0._1.SolarSystem.VertexC4ubV3f">
+        <TypeIdentifier>
+          <NewMemberFileName>SolarSystem.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="PRI_116_KP_Space_Martynov_v0._0._1.SolarSystem.ParticleAttribut">
+        <TypeIdentifier>
+          <NewMemberFileName>SolarSystem.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>ABQDBAAEgAAAECQAgAQAMQAAACAAAISQEAAIIEAUYQE=</HashCode>
+      <FileName>SolarSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PRI_116_KP_Space_Martynov_v0._0._1.Form1">
+    <Position X="4.5" Y="0.5" Width="3.25" />
+    <Members>
+      <Field Name="btnBack" Hidden="true" />
+      <Field Name="btnDown" Hidden="true" />
+      <Field Name="btnForward" Hidden="true" />
+      <Field Name="btnLeft" Hidden="true" />
+      <Field Name="btnRight" Hidden="true" />
+      <Field Name="btnTurnLeft" Hidden="true" />
+      <Field Name="btnTurnRight" Hidden="true" />
+      <Field Name="btnUp" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Field Name="instructionBox" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label10" Hidden="true" />
+      <Field Name="label11" Hidden="true" />
+      <Field Name="label12" Hidden="true" />
+      <Field Name="label13" Hidden="true" />
+      <Field Name="label14" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="label3" Hidden="true" />
+      <Field Name="label4" Hidden="true" />
+      <Field Name="label5" Hidden="true" />
+      <Field Name="label6" Hidden="true" />
+      <Field Name="label7" Hidden="true" />
+      <Field Name="label8" Hidden="true" />
+      <Field Name="label9" Hidden="true" />
+      <Field Name="lael" Hidden="true" />
+      <Field Name="menuStrip1" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>/T8BIwXPezgUAhVsmuHgodSejSQqgQDwdMK8WqvCfkQ=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
